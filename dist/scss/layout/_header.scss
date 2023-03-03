@@ -1,8 +1,6 @@
 .header{
     background-color: $clr-dark;
-    z-index: 999;
     width: 100%;
-    
     &__wrapper{
         @include mediaQuery($desktop){
             display: flex;
@@ -16,7 +14,7 @@
             padding: 1rem 0;
             width: 20rem;
             gap: 1rem;
-            
+            z-index: 99;
             img{
                 width: 4rem;
             }
@@ -28,7 +26,7 @@
             }
         }
         .header__nav{
-            z-index: -1;
+            z-index: 1;
             position: absolute;
             top: -100rem;
             left: 0;
@@ -55,7 +53,7 @@
                 li{
                     margin: 2rem;
                     @include mediaQuery($desktop){
-                        margin: 2rem;
+                        margin: 2rem 1rem;
 
                     }
                     a{
@@ -76,11 +74,11 @@
                 flex-direction: column;
                 color: $clr-light;
                 @include mediaQuery($desktop){
-                    display: grid;
                     @include grid(2, 0rem);
                     height: 100%;
                     max-height: 7rem;
                     position: relative;
+                    margin-left: 13rem;
                 }
                 input{
                     margin: 0 0 1rem 2rem;
@@ -135,6 +133,7 @@
         }  
 
         .toggle__menu{
+            z-index: 99;
             position: absolute;
             right: 3rem;
             top: 2rem;
@@ -155,4 +154,126 @@
         }
     }
         
+    }
+
+    // banner
+    .banner{
+        background-color: $clr-dark;
+        color: $clr-light;
+        &__title{
+            background-color: $clr-darker;
+            color: $clr-light;
+            width: 100%;
+            text-align: center;
+            padding: .5rem;
+            p{
+                color: $clr-gray-light;
+                a{
+                    color: $clr-secondary;
+                }
+            }
+        }
+
+        &__wrapper{
+            @include mediaQuery($desktop){
+                @include gridUneven(1fr 2fr, 2rem);
+                padding: 6rem 0;
+            }
+            .left{
+                text-align: center;
+                margin-top: 3rem;
+                h1:first-child{
+                    font-weight: lighter;
+                    line-height: 1;
+                }
+                h1{
+                    font-size: clamp(3.5rem, 4vw, 5rem);
+                    line-height: 1;
+                }
+                p{
+                    color: $clr-gray;
+                    font-size: clamp(1.3rem, 1.5vw, 1.8rem);
+                }
+
+                .banner__btn{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin: 0 5rem;
+                    gap: .3rem;
+                    margin-top: 3rem;
+
+                    &__left{
+                        button{
+                            padding: 1rem;
+                            font-size: clamp(1.5rem, 2vw, 2rem);
+                            font-weight: 500;
+                            small{
+                                font-size: clamp(1rem, 1vw, 1.4rem);
+                                font-weight: 100;
+                            }
+                        }
+                    }
+                    &__right{
+                        padding: 1.99rem 1rem;
+                        @include mediaQuery($desktop){
+                            padding: 2.7rem 1rem;
+                        }
+                    }
+                }
+
+                .highlight__text{
+                    p{ 
+                        position: relative;
+                        margin: 1.5rem 0;
+                        background-color: $clr-darker;
+                        border-radius: 1rem;
+                        display: inline-block;
+                        padding: .5rem 2.1rem;
+                        @include mediaQuery($desktop){
+                            padding: .7rem .8rem;
+                        }
+                        font-size: clamp(1rem, 2vw, 1.4rem);
+                        a{
+                            color: $clr-secondary;
+                        }
+                        &::before{
+                            content: '';
+                            // background-color: $clr-darker;
+                            position: absolute;
+                            // border-top-left-radius: 100px;
+                            // border-top-right-radius: 100px;
+                            width: 0;
+                            height: 0;
+                            border-left: 20px solid transparent;
+                            border-right: 20px solid transparent;
+                            border-bottom: 15px solid $clr-darker;
+                            top: -1rem;
+                            right: 1rem;
+                            @include mediaQuery($desktop){
+                                right: 0;
+                            }
+                        }
+                    }
+                    
+                }
+
+                h5{
+                    font-size: clamp(1rem, 2vw, 1.2rem);
+                    font-weight: lighter;
+                    color: $clr-gray;
+                    margin-bottom: -.5rem;
+                }
+                small{
+                    a{
+                        color: $clr-secondary;
+                        font-size: clamp(.9rem, 1vw, 1.2rem);
+                    }
+                }
+            }
+
+            // .right{
+            //     color
+            // }
+        }
     }
