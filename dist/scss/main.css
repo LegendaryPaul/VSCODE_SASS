@@ -432,6 +432,16 @@ h1 span, h2 span, h3 span, h4 span, h5 span, h6 span {
 .header {
   background-color: #2C2C32;
   width: 100%;
+  position: relative;
+  z-index: 999;
+}
+.header::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #2C2C32;
+  z-index: -2;
 }
 .header__wrapper {
   height: 6rem;
@@ -449,7 +459,6 @@ h1 span, h2 span, h3 span, h4 span, h5 span, h6 span {
   padding: 1rem 0;
   width: 20rem;
   gap: 1rem;
-  z-index: 99;
 }
 .header__wrapper .branding img {
   width: 4rem;
@@ -461,27 +470,26 @@ h1 span, h2 span, h3 span, h4 span, h5 span, h6 span {
   color: #FFFFF9;
 }
 .header__wrapper .header__nav {
-  z-index: 1;
   position: absolute;
   top: -100rem;
   left: 0;
   background-color: #2C2C32;
-  width: 100vw;
   width: 100%;
-  height: 100%;
   transition: 0.7s ease;
   max-height: 36.8rem;
+  z-index: -5;
 }
 @media screen and (min-width: 120rem) {
   .header__wrapper .header__nav {
     background-color: unset;
     top: 0;
-    z-index: unset;
     display: flex;
     gap: 5rem;
     position: unset;
     width: 100%;
+    height: 100%;
     overflow: hidden;
+    z-index: unset;
   }
 }
 @media screen and (min-width: 120rem) {
@@ -581,11 +589,12 @@ h1 span, h2 span, h3 span, h4 span, h5 span, h6 span {
   }
 }
 .header__wrapper .toggle__menu {
-  z-index: 99;
   position: absolute;
   right: 3rem;
-  top: 2rem;
+  top: 0.5rem;
   display: block;
+  padding: 1rem;
+  padding-top: 1.2rem;
 }
 @media screen and (min-width: 120rem) {
   .header__wrapper .toggle__menu {
@@ -593,13 +602,17 @@ h1 span, h2 span, h3 span, h4 span, h5 span, h6 span {
   }
 }
 .header__wrapper .toggle__menu span {
-  width: 3.5rem;
+  width: 2.5rem;
   height: 0.3rem;
   background-color: #FFFFF9;
   margin-bottom: 0.5rem;
   display: block;
   border-radius: 4rem;
   transition: 1s ease;
+}
+.header__wrapper .toggle__menu.open {
+  background-color: #0396FF;
+  border-radius: 0.5rem;
 }
 
 .banner {
@@ -609,9 +622,9 @@ h1 span, h2 span, h3 span, h4 span, h5 span, h6 span {
 .banner__title {
   background-color: #25252B;
   color: #FFFFF9;
-  width: 100%;
+  max-width: 100%;
   text-align: center;
-  padding: 0.5rem;
+  padding: 1.3rem 5rem 0.8rem 5rem;
 }
 .banner__title p {
   color: #cccccc;
@@ -619,12 +632,15 @@ h1 span, h2 span, h3 span, h4 span, h5 span, h6 span {
 .banner__title p a {
   color: #0396FF;
 }
+.banner__title p a:hover {
+  text-decoration-line: underline;
+}
 @media screen and (min-width: 120rem) {
   .banner__wrapper {
     display: grid;
     grid-template-columns: 1fr 2fr;
     grid-gap: 2rem;
-    padding: 6rem 0;
+    padding: 3rem 0;
   }
 }
 .banner__wrapper .left {
@@ -632,7 +648,7 @@ h1 span, h2 span, h3 span, h4 span, h5 span, h6 span {
   margin-top: 3rem;
 }
 .banner__wrapper .left h1:first-child {
-  font-weight: lighter;
+  font-weight: normal;
   line-height: 1;
 }
 .banner__wrapper .left h1 {
@@ -652,8 +668,8 @@ h1 span, h2 span, h3 span, h4 span, h5 span, h6 span {
   margin-top: 3rem;
 }
 .banner__wrapper .left .banner__btn__left button {
-  padding: 1rem;
-  font-size: clamp(1.5rem, 2vw, 2rem);
+  padding: 1rem 1.3rem;
+  font-size: clamp(1.5rem, 2vw, 1.8rem);
   font-weight: 500;
 }
 .banner__wrapper .left .banner__btn__left button small {
@@ -665,7 +681,7 @@ h1 span, h2 span, h3 span, h4 span, h5 span, h6 span {
 }
 @media screen and (min-width: 120rem) {
   .banner__wrapper .left .banner__btn__right {
-    padding: 2.7rem 1rem;
+    padding: 2.4rem 1rem;
   }
 }
 .banner__wrapper .left .highlight__text p {
@@ -675,7 +691,7 @@ h1 span, h2 span, h3 span, h4 span, h5 span, h6 span {
   border-radius: 1rem;
   display: inline-block;
   padding: 0.5rem 2.1rem;
-  font-size: clamp(1rem, 2vw, 1.4rem);
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
 }
 @media screen and (min-width: 120rem) {
   .banner__wrapper .left .highlight__text p {
@@ -684,6 +700,9 @@ h1 span, h2 span, h3 span, h4 span, h5 span, h6 span {
 }
 .banner__wrapper .left .highlight__text p a {
   color: #0396FF;
+}
+.banner__wrapper .left .highlight__text p a:hover {
+  text-decoration-line: underline;
 }
 .banner__wrapper .left .highlight__text p::before {
   content: "";
@@ -702,12 +721,87 @@ h1 span, h2 span, h3 span, h4 span, h5 span, h6 span {
   }
 }
 .banner__wrapper .left h5 {
-  font-size: clamp(1rem, 2vw, 1.2rem);
+  font-size: clamp(1.2rem, 2vw, 1.2rem);
   font-weight: lighter;
   color: #ABABAD;
   margin-bottom: -0.5rem;
 }
 .banner__wrapper .left small a {
   color: #0396FF;
-  font-size: clamp(0.9rem, 1vw, 1.2rem);
+  font-size: clamp(1.2rem, 1vw, 1.2rem);
+}
+.banner__wrapper .left small a:hover {
+  text-decoration-line: underline;
+}
+
+.new {
+  background-color: #FFFFF9;
+}
+.new__wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 2rem;
+}
+@media screen and (min-width: 120rem) {
+  .new__wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 2rem;
+  }
+}
+.new__wrapper .new__item {
+  padding: 1rem 2rem;
+  text-align: center;
+  cursor: pointer;
+}
+.new__wrapper .new__item i {
+  font-size: 4rem;
+  margin: 1rem 0;
+}
+.new__wrapper .new__item h3 {
+  font-weight: normal;
+  margin: 1rem 0;
+}
+.new__wrapper .new__item:hover {
+  background-color: #ABABAD;
+}
+.new__wrapper .new__item:first-child:hover i {
+  color: indigo;
+}
+.new__wrapper .new__item:nth-child(2):hover i {
+  color: green;
+}
+.new__wrapper .new__item:nth-child(3):hover i {
+  color: red;
+}
+.new__wrapper .new__item:nth-child(4):hover i {
+  color: black;
+}
+
+.slider {
+  background-color: #f8f8f9;
+}
+.slider .tns-outer {
+  position: relative;
+}
+.slider .tns-outer .tns-controls {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  position: absolute;
+  z-index: 99;
+  left: 0;
+  top: 50%;
+}
+.slider .tns-outer .tns-controls button {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 1px;
+  color: #25252B;
+  font-size: 2rem;
+  border: none;
 }/*# sourceMappingURL=main.css.map */

@@ -66,6 +66,7 @@
   height: $height;
   object-fit: cover;
   object-position: center center;
+  display: block;
 }
 
 @mixin psuedo($top:0, $left:0) {
