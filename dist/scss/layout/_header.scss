@@ -2,8 +2,9 @@
 .header{
     background-color: $clr-dark;
     width: 100%;
-    position: relative;
+    position: fixed;
     z-index: 999;
+    box-shadow: $shadow;
     &::before{
     content: '';
     position: absolute;

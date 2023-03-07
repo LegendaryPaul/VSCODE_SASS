@@ -5,7 +5,7 @@ html {
 }
 
 body {
-  font-family: $ff-primary;
+  font-family: $ff-third;
   font-size: 1.6rem;
   line-height: 1.4;
   color: $clr-dark;
@@ -22,7 +22,7 @@ p {
 }
 
 h1, h2, h3, h4, h5, h6{
-  font-weight: bold;
+  font-weight: 100;
   span{
     color: $clr-primary;
   }
