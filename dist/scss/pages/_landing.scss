@@ -314,8 +314,8 @@
                 order: -1;
             }
         }
-        .about__content:nth-child(3){
-        }
+        // .about__content:nth-child(3){
+        // }
         .about__content:nth-child(4){
             background-color: lighten($clr-gray, 30);
             img{
@@ -394,8 +394,6 @@
                 li{
                     display: flex;
                     align-items: center;
-                    i{
-                    }
                 }
             }
         
@@ -436,6 +434,13 @@
 .os{
     padding: 6rem 0;
     &__wrapper{
+        @include mediaQueryTablet($tablet){
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 4rem;
+        }
         @include mediaQuery($desktop){
             @include grid(3, 1rem);
         }
@@ -570,3 +575,4 @@
         }
     }
 }
+
