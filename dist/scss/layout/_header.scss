@@ -1,10 +1,12 @@
 // header
+.header.shadow{
+    box-shadow: $shadow;
+}
 .header{
     background-color: $clr-dark;
     width: 100%;
     position: fixed;
     z-index: 999;
-    box-shadow: $shadow;
     &::before{
     content: '';
     position: absolute;

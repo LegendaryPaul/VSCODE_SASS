@@ -8,5 +8,19 @@ toggle.addEventListener("click", () => {
     toggle.classList.toggle("open");
 })
 
+// new
+
+const headerB = document.querySelector(".header");
+
+window.addEventListener("scroll", () => {
+    console.log(window.pageYOffset);
+    if(window.pageYOffset >= 100){
+        headerB.classList.remove("shadow");
+    }
+    else{
+        headerB.classList.add("shadow");
+    }
+});
+
 
 
