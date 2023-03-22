@@ -170,6 +170,12 @@
 
 .slider{
     background-color: lighten($clr-gray, 30);
+
+        @include mediaQuery($desktop){
+            .tns-horizontal.tns-subpixel>.tns-item{
+                display: inline-flex;
+            }
+        }
         .tns-outer{ 
             position: relative;
             .tns-controls{
@@ -192,10 +198,9 @@
                 }
 
                 .tns-item{
-                    
                     .flex{
                         display: flex;
-                        align-items: flex-start;
+                        align-items: center;
                         gap: 1rem;
                     }
                     padding:5rem 3rem;
